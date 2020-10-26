@@ -7,17 +7,20 @@ document.getElementById('test-button').addEventListener('click', function(){
 const titleClickHandler = function(event){
     console.log('Link was clicked!');
   
-    /* remove class 'active' from all article links  */
-  
-    /* add class 'active' to the clicked link */
-  
-    /* remove class 'active' from all articles */
+    /* [DONE] remove class 'active' from all article links  */
+
     const activeLinks = document.querySelectorAll('.titles a.active');
 
     for(let activeLink of activeLinks){
         activeLink.classList.remove('active');
     }
-    /* remove class 'active' from all articles */
+    /* [DONE] add class 'active' to the clicked link */
+  
+    console.log('clickedElement (with plus): ' + clickedElement);
+        clickedElement.classList.add('active');
+   
+    
+    /* [DONE] remove class 'active' from all articles */
     const activeArticle = document.querySelectorAll('.posts article.active');
 
     for(let activeArticle of activeArticles){
