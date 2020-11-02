@@ -10,7 +10,6 @@ const titleClickHandler = function(event){
     console.log('Link was clicked!');
   
     /* [DONE] remove class 'active' from all article links  */
-
     const activeLinks = document.querySelectorAll('.titles a.active');
 
     for(let activeLink of activeLinks){
@@ -43,7 +42,7 @@ const titleClickHandler = function(event){
 
     targetArticle.classList.add('active');
 
-}
+};
   
     const optArticleSelector = '.post',
         optTitleSelector = '.post-title',
@@ -90,5 +89,4 @@ const titleClickHandler = function(event){
             link.addEventListener('click', titleClickHandler);
         }
     }
-
 generateTitleLinks();
