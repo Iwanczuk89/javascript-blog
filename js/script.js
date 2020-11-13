@@ -1,4 +1,4 @@
-
+{
 /* document.getElementById('test-button').addEventListener('click', function(){
     const links = document.querySelectorAll('.titles a');
     console.log('links:', links);
@@ -98,17 +98,20 @@ generateTitleLinks();
           
         for (let tag in tags) {
             console.log(tag + ' is used ' + tags[tag] + ' times');
-        if  (tags[tag] > params.max) {
-            params.max = tags[tag];
+             if  (tags[tag] > params.max) {
+                params.max = tags[tag];
+                }
             }
-        if  (tags[tag] < params.min) {
-            params.min = tags[tag];
+
+        for (let tag in tags) {
+            if  (tags[tag] < params.min) {
+                params.min = tags[tag];
+                }
             }
-        }
         
         return params;
   };
-    function calculateTagClass(count, params) {
+    function calculateTagClass (count, params) {
     const normalizedCount = count - params.min;
     const normalizedMax = params.max - params.min;
     const percentage = normalizedCount / normalizedMax;
@@ -160,16 +163,17 @@ generateTitleLinks();
                 /* [NEW] check if this link is NOT already in allTags */
                 if(!allTags[tag]) {
         
-                    /* [NEW] add tag to allTags object */
-                    allTags[tag] = 1;
+                /* [NEW] add tag to allTags object */
+                allTags[tag] = 1;
                 } else {
-                     allTags[tag]++;
+                    allTags [tag]++;
                 }
                         
                 /* END LOOP: for each tag */
             }
             /* insert HTML of all the links into the tags wrapper */
             tagsWrapper.innerHTML = html;
+            
             /* END LOOP: for every article: */
         }
             /* [NEW] find list of tags in right column */
@@ -191,7 +195,7 @@ generateTitleLinks();
                 allTagsHTML += tagLinkHTML;
             }
             /* [NEW] END LOOP: for each tag in allTags: */
-    
+        
             /*[NEW] add HTML from allTagsHTML to tagList */
             tagList.innerHTML = allTagsHTML;
         
@@ -221,7 +225,7 @@ generateTags();
         console.log(activeTagsLinks);
         
         /* [DONE] START LOOP: for each active tag link */
-        for (let activeTagLInk of activeTagLinks) {
+        for (let activeTagsLInk of activeTagsLinks) {
             
             /* [DONE] remove class active */
             activeTagsLink.classList.remove('active');
@@ -250,7 +254,7 @@ generateTags();
     function addClickListenersToTags() {
         
         /* [DONE] find all links to tags */
-        const tagsLinks = document.querySelectorAll('.post-tags, .tags.list a');
+        const tagsLinks = document.querySelectorAll('a[href^="#tag-"]');
         console.log(tagsLinks);
         
         /* [DONE] START LOOP: for each link */
@@ -261,7 +265,7 @@ generateTags();
         
             /* [DONE] END LOOP: for each link */
         }
-  }
+    };
   
     addClickListenersToTags();
 
@@ -284,8 +288,8 @@ generateTags();
             /* [DONE] /* make html variable with empty string */
             let html = '';
         
-            /* get tags from data-tags attribute */
-            const author = article.getAttribute('data-author');
+            /* get tags from data-author attribute */
+            const authorTags = article.getAttribute('data-author');
             console.log(author);
 
             /* [DONE] generate HTML of the link */
@@ -387,6 +391,7 @@ generateAuthors();
     }
       
     addClickListenersToAuthors();
+}
     
     
     
