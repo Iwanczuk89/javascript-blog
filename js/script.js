@@ -131,7 +131,7 @@ generateTitleLinks();
         for (let article of articles){
             
             /* [DONE] find tags wrapper */
-            const tagsWrapper = article.querySelector(optArticleSelector);
+            const tagsWrapper = article.querySelector(optArticleTagsSelector);
             console.log(tagsWrapper);
             
             /* [DONE] make html variable with empty string */
@@ -217,7 +217,7 @@ generateTags();
         console.log(tag);
         
         /* [DONE] find all tag links with class active */
-        const activeTagsLinks = document.querySelectorAll('a.active[href="tag-"]');
+        const activeTagsLinks = document.querySelectorAll('a.active[href^="#tag-"]');
         console.log(activeTagsLinks);
         
         /* [DONE] START LOOP: for each active tag link */
