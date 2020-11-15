@@ -120,14 +120,14 @@ generateTitleLinks();
         
         return params;
   };
-    const calculateTagClass = function(count, params) {
+    const calculateTagClass = function (count, params) {
         const normalizedCount = count - params.min;
         const normalizedMax = params.max - params.min;
         const percentage = normalizedCount / normalizedMax;
-        const classNumber = Math.floor(percentage * (opt.cloud.classCount - 1) + 1);
+        const classNumber = Math.floor(percentage * (optCloudClassCount - 1) + 1);
     
         console.log('class number', classNumber);
-        return opt.cloud.classPrefix + classNumber;
+        return optCloudClassPrefix + classNumber;
     };
     
     const generateTags = function(){
@@ -251,14 +251,14 @@ generateTags();
         /* [DONE] END LOOP: for each active tag link */
         }
         /* [DONE] find all tag links with "href" attribute equal to the "href" constant */
-        const attributeLinks = document.querySelectorAll('a[href="' + href + '"]');
-        console.log(attributeLinks);
+        const hrefAttributeLinks = document.querySelectorAll('a[href="' + href + '"]');
+        console.log(hrefAttributeLinks);
         
         /* [DONE] START LOOP: for each found tag link */
-        for (let attributeLink of attributeLinks) {
+        for (let hrefAttributeLink of hrefAttributeLinks) {
             
             /* [DONE] add class active */
-            attributeLink.classList.add('active');
+            hrefAttributeLink.classList.add('active');
             console.log(attributeLink);
 
         /* [DONE] END LOOP: for each found tag link */
@@ -272,11 +272,11 @@ generateTags();
     const addClickListenersToTags = function() {
         
         /* [DONE] find all links to tags */
-        const tagsLinks = document.querySelectorAll('a[href^="#tag-"]');
-        console.log(tagsLinks);
+        const tagLinks = document.querySelectorAll('a[href^="#tag-"]');
+        console.log(tagLinks);
         
         /* [DONE] START LOOP: for each link */
-        for ( let tagsLink of tagsLinks) {
+        for ( let tagLink of tagLinks) {
             
             /* [DONE] add tagClickHandler as event listener for that link */
             tagLink.addEventListener('click', tagClickHandler);
@@ -308,7 +308,7 @@ generateTags();
         
             /* get tags from data-author attribute */
             const authorTags = article.getAttribute('data-author');
-            console.log(author);
+            console.log(authorTags);
 
             /* [DONE] generate HTML of the link */
             const authorLinkHTML = '<a href="#author-' + authorTags + '"><span>' + authorTags + '</span></a>';
