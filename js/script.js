@@ -49,7 +49,7 @@ const titleClickHandler = function(event) {
         optCloudClassPrefix = 'tag-size-',
         optAuthorListSelector = '.author.list';
 
-    function generateTitleLinks(customSelector = '') {
+    const generateTitleLinks = function (customSelector = '') {
 
         /* [DONE] remove contents of titleList */
         const titleList = document.querySelector(optTitleListSelector);
@@ -93,7 +93,7 @@ const titleClickHandler = function(event) {
     }
 generateTitleLinks();
 
-    function calculateTagsParams(tags) {
+    const calculateTagsParams = function(tags) {
         const params = {max: 0, min: 999999 };
           
         for (let tag in tags) {
@@ -111,17 +111,17 @@ generateTitleLinks();
         
         return params;
   };
-    function calculateTagClass (count, params) {
-    const normalizedCount = count - params.min;
-    const normalizedMax = params.max - params.min;
-    const percentage = normalizedCount / normalizedMax;
-    const classNumber = Math.floor(percentage * (opts.cloud.classCount - 1) + 1);
+    const calculateTagClass = function(count, params) {
+        const normalizedCount = count - params.min;
+        const normalizedMax = params.max - params.min;
+        const percentage = normalizedCount / normalizedMax;
+        const classNumber = Math.floor(percentage * (opt.cloud.classCount - 1) + 1);
     
-    console.log('class number', classNumber);
-    return opts.cloud.classPrefix + classNumber;
-  };
+        console.log('class number', classNumber);
+        return opt.cloud.classPrefix + classNumber;
+    };
     
-    function generateTags(){
+    const generateTags = function(){
 
         /* [NEW] create a new variable allTags with an empty object */
         let allTags = {};
@@ -203,7 +203,7 @@ generateTitleLinks();
 
 generateTags();
 
-    function tagClickHandler(event){
+    const tagClickHandler = function (event){
         
         /* [DONE] prevent default action for this event */
         event.preventDefault();
@@ -251,7 +251,7 @@ generateTags();
 };
 
   
-    function addClickListenersToTags() {
+    const addClickListenersToTags = function() {
         
         /* [DONE] find all links to tags */
         const tagsLinks = document.querySelectorAll('a[href^="#tag-"]');
@@ -269,7 +269,7 @@ generateTags();
   
     addClickListenersToTags();
 
-    function generateAuthors() {
+    const generateAuthors = function() {
         
         /* [NEW] create a new variable allAuthors with an empty object */
         let allAuthors = {};
@@ -327,7 +327,7 @@ generateTags();
 
 generateAuthors();
 
-    function authorClickHandler(event) {
+    const authorClickHandler = function(event) {
         
             /* [DONE] prevent default action for this event */
             event.preventDefault();
@@ -373,11 +373,11 @@ generateAuthors();
             /* [DONE] execute function "generateTitleLinks" with article selector as argument */
             generateTitleLinks('[data-author="' + author + '"]');
     }
-    function addClickListenersToAuthors() {
+    const addClickListenersToAuthors = function() {
         
         
             /* [DONE] find all links to authors */
-            const authorLinks = document.querySelectorAll('a[href^="#author-"]');
+            const authorLinks = document.querySelectorAll('.post-author a, .list.authors a');
             console.log(authorLinks);
             
             /* [DONE] START LOOP: for each link */
