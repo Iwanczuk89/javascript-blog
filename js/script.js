@@ -239,27 +239,27 @@ generateTags();
         console.log(tag);
         
         /* [DONE] find all tag links with class active */
-        const activeTagsLinks = document.querySelectorAll('a.active[href^="#tag-"]');
+        const tagsLinks = document.querySelectorAll('a.active[href^="#tag-"]');
         console.log(activeTagsLinks);
         
         /* [DONE] START LOOP: for each active tag link */
-        for (let activeTagsLInk of activeTagsLinks) {
+        for (let activeTagLInk of activeTagLinks) {
             
             /* [DONE] remove class active */
-            activeTagsLink.classList.remove('active');
+            activeTagLink.classList.remove('active');
 
         /* [DONE] END LOOP: for each active tag link */
         }
         /* [DONE] find all tag links with "href" attribute equal to the "href" constant */
-        const hrefAttributeLinks = document.querySelectorAll('a[href="' + href + '"]');
-        console.log(hrefAttributeLinks);
+        const tagLinks = document.querySelectorAll('a[href="' + href + '"]');
+        console.log(tagLinks);
         
         /* [DONE] START LOOP: for each found tag link */
-        for (let hrefAttributeLink of hrefAttributeLinks) {
+        for (let tagLink of tagLinks) {
             
             /* [DONE] add class active */
-            hrefAttributeLink.classList.add('active');
-            console.log(attributeLink);
+            tagLink.classList.add('active');
+            console.log(hrefattributeLink);
 
         /* [DONE] END LOOP: for each found tag link */
         }
