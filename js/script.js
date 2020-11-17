@@ -221,7 +221,7 @@ generateTitleLinks();
 
 generateTags();
 
-    const tagClickHandler = function (event){
+    const tagClickHandler = function (event) {
         
         /* [DONE] prevent default action for this event */
         event.preventDefault();
@@ -239,11 +239,11 @@ generateTags();
         console.log(tag);
         
         /* [DONE] find all tag links with class active */
-        const tagsLinks = document.querySelectorAll('a.active[href^="#tag-"]');
-        console.log(activeTagsLinks);
+        const activeTagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
+        console.log(activeTagLinks);
         
         /* [DONE] START LOOP: for each active tag link */
-        for (let activeTagLInk of activeTagLinks) {
+        for (let activeTagLink of activeTagLinks) {
             
             /* [DONE] remove class active */
             activeTagLink.classList.remove('active');
@@ -251,15 +251,15 @@ generateTags();
         /* [DONE] END LOOP: for each active tag link */
         }
         /* [DONE] find all tag links with "href" attribute equal to the "href" constant */
-        const tagLinks = document.querySelectorAll('a[href="' + href + '"]');
-        console.log(tagLinks);
+        const hrefTagLinks = document.querySelectorAll('a[href="' + href + '"]');
+        console.log(hrefTagLinks);
         
         /* [DONE] START LOOP: for each found tag link */
-        for (let tagLink of tagLinks) {
+        for (let hrefTagLink of hrefTagLinks) {
             
             /* [DONE] add class active */
-            tagLink.classList.add('active');
-            console.log(hrefattributeLink);
+            hrefTagLink.classList.add('active');
+            console.log(hrefTagLink);
 
         /* [DONE] END LOOP: for each found tag link */
         }
@@ -345,7 +345,7 @@ generateTags();
 
 generateAuthors();
 
-    const authorClickHandler = function(event) {
+    const authorClickHandler = function (event) {
         
             /* [DONE] prevent default action for this event */
             event.preventDefault();
