@@ -162,8 +162,13 @@ generateTitleLinks();
                 console.log(tag)
                 
                 /* generate HTML of the link */
-                const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
-                console.log(linkHTML);
+                //const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
+                //console.log(linkHTML);
+                const linkHTMLData = {
+                    id: tag,
+                    title: tag
+                };
+                const linkHTML = templates.articleTag(linkHTMLData);
 
                 /* add generated code to html variable */
                 html = html + linkHTML + '  ';
@@ -210,13 +215,11 @@ generateTitleLinks();
                     count: allTags[tag],
                     className: calculateTagClass(allTags[tag], tagsParams)
                   });
-            }
-            /* [NEW] END LOOP: for each tag in allTags: */
-        
+                        /* [NEW] END LOOP: for each tag in allTags: */
+                    }
             /*[NEW] add HTML from allTagsHTML to tagList */
             tagList.innerHTML = templates.tagCloudLink(allTagsData);
             console.log('allTagsData');
-        
 };
 
 generateTags();
@@ -315,7 +318,7 @@ generateTags();
                 id: author,
                 title: author
             };
-            const linkHTMLAuthor = templates.articleLink(linkHTMLData);
+            const linkHTMLAuthor = templates.articleAuthor(linkHTMLData);
             console.log(linkHTMLAuthor);
 
             /* [DONE] add generated code to html variable */
