@@ -390,7 +390,7 @@ generateAuthors();
             for (let activeAuthorLink of activeAuthorLinks) {
                 
                 /* [DONE] remove class active */
-                activeAuthorLinks.classList.remove('active');
+                activeAuthorLink.classList.remove('active');
     
                 /* [DONE] END LOOP: for each active tag link */
             }
@@ -399,11 +399,11 @@ generateAuthors();
             console.log(authorAttributeLinks);
             
             /* [DONE] START LOOP: for each found tag link */
-            for (let authorAttributeLink of autorAttributeLinks) {
+            for (let authorAttributeLink of authorAttributeLinks) {
                 
                 /* [DONE] add class active */
-                autorAttributeLink.classList.add('active');
-                console.log(attributeLink);
+                authorAttributeLink.classList.add('active');
+                console.log(authorAttributeLink);
     
                 /* [DONE] END LOOP: for each found tag link */
             }
@@ -415,7 +415,7 @@ generateAuthors();
         
         
             /* [DONE] find all links to authors */
-            const authorLinks = document.querySelectorAll('.post-author a, .list.authors a');
+            const authorLinks = document.querySelectorAll('a[href^="#author-"]');
             console.log(authorLinks);
             
             /* [DONE] START LOOP: for each link */
