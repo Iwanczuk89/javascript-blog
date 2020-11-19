@@ -1,3 +1,5 @@
+'use strict';
+
 {
 /* document.getElementById('test-button').addEventListener('click', function(){
     const links = document.querySelectorAll('.titles a');
@@ -340,8 +342,8 @@ generateTags();
         const authorList = document.querySelector('.authors');
         
         /* [NEW] create variable for all links HTML code */
-        const allAuthorsData = {
-            author: []
+        const allAuthorData = {
+            authors: []
         };
 
         /* [NEW] START LOOP: for each tag in allTags: */
@@ -351,7 +353,7 @@ generateTags();
             //const linkHTML = '<li><a href="#author-' + author + '">' + author + ' (' + allAuthors[author] + ') </a></li>';
 
             //allAuthorsHTML += linkHTML;
-            allAuthorsData.author.push({
+            allAuthorData.authors.push({
                 author: author,
                 count: allAuthors[author],
               });
@@ -360,7 +362,7 @@ generateTags();
         }
         
         /*[NEW] add HTML from allTagsHTML to tagList */
-        authorList.innerHTML = templates.authorLink(allAuthorsData);
+        authorList.innerHTML = templates.authorLink(allAuthorData);
     }
 
 generateAuthors();
